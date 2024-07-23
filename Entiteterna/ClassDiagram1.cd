@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Model.Anställd">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAIAAAAACAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Anställd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.BokningsRadLogial">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIQAAAABIAAAAAAAAAAAAAAACAAAEAAAA=</HashCode>
+      <FileName>BokningsRadLogial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.BokningsRadSkidskola">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAgABAAAAAAAAgCAAAEEAAA=</HashCode>
+      <FileName>BokningsRadSkidskola.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.BokningsRadUtrustning">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAgAgDAAAEAAAA=</HashCode>
+      <FileName>BokningsRadUtrustning.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.FöretagKund">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAgAAAAAAAAAAEIAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>FöretagKund.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.KonferensBokningsRad">
+    <Position X="14" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQgAAAAAAAQAAAAAAAAAAABABAQAAAAACAAAAAAAA=</HashCode>
+      <FileName>KonferensBokningsRad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.KonferensBokningView">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAEAAAEAAAAAAABAAAAAAAIAACAAAAg=</HashCode>
+      <FileName>KonferensBokningView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.Konferenslokal">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Entiteterna.Konferenslokal.KlokalTyp" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Konferenslokal.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQAAAAEAAAEJAAAgIAIAAAAAAAEEQAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Konferenslokal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.Kund">
+    <Position X="12.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAEIAAAACQAAAAAAAAAA=</HashCode>
+      <FileName>Kund.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.Logial">
+    <Position X="8" Y="3.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Entiteterna.Logial.ApartmentType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Logial.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQwgAAAIIAAIAAAEIAAAAAAgAAAAAAAAgIAAAgCIAAA=</HashCode>
+      <FileName>Logial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.SkidshopBokningsRadSkidskola">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAQABAAAAAgABAAAAAABAACAAAAAAAA=</HashCode>
+      <FileName>SkidshopBokningsRadSkidskola.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.SkidshopBokningsRadUtrustning">
+    <Position X="1.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAQABAAAAAAAAAEAAAAhAACAAAAAAAA=</HashCode>
+      <FileName>SkidshopBokningsRadUtrustning.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.SkidShopView">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAFAAAAACAQAAAAAAAAAAAAACgAAAAAIACAAAAA=</HashCode>
+      <FileName>SkidShopView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.Skidskola">
+    <Position X="3.5" Y="3" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Entiteterna.Skidskola.LektionTyp" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Skidskola.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAQAAgAQAAIIAAAEAAAACIAAAAAAAAAAgMIAAgAAAAA=</HashCode>
+      <FileName>Skidskola.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.TellefonMottagareView">
+    <Position X="1.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAGAAAAgAAAAAAAAAAJIACEAAAA=</HashCode>
+      <FileName>TellefonMottagareView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entiteterna.Utrustning">
+    <Position X="5" Y="3" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Entiteterna.Utrustning.UtrustningTyp" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Utrustning.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>EQAAQAAEhgAIBAAGgAAgAoAAtgGDAJDBAwAAAhEAQAA=</HashCode>
+      <FileName>Utrustning.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

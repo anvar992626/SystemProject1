@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\UtrustningBokning.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\2023-11-01.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Views\UtrustningBokning.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.1" />
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AffärsLager\AffärsLager.csproj" />
+    <ProjectReference Include="..\DataLager\DataLager.csproj" />
+    <ProjectReference Include="..\Entiteterna\Entiteterna.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\2023-11-01.jpg" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,76 @@
+﻿<Window x:Class="WpfApp.Views.LoggIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp.Views"
+        xmlns:vm="clr-namespace:WpfApp.ViewModels"
+        mc:Ignorable="d"
+        Title="LoggIn" Height="450" Width="670" ScrollViewer.HorizontalScrollBarVisibility="Visible" AutomationProperties.IsOffscreenBehavior="Onscreen">
+    <Window.DataContext>
+        <vm:LoggInViewModel/>
+    </Window.DataContext>
+    <DockPanel LastChildFill="True" Margin="0,1,0,1">
+        <Menu Background="LightBlue" Margin="10,10,10,10" DockPanel.Dock="Top" Height="19">
+            <MenuItem Header="_File">
+
+
+                <MenuItem Header="E_xit" Command="{Binding ExitCommand}" />
+            </MenuItem>
+        </Menu>
+
+        <Grid Height="797" Margin="0,0,1,0" RenderTransformOrigin="1,0.5" Opacity="0.95">
+            <Grid.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Views/2023-11-01.jpg" Stretch="UniformToFill" Viewbox="0,0,1,1.5" Viewport="0,0,1,1"/>
+
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="146*"/>
+                <ColumnDefinition Width="647*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--<Image HorizontalAlignment="Left" Height="434" VerticalAlignment="Center" Width="667" Source="/Views/kiroro_peak_E122_001-1.png" OpacityMask="White" Opacity="0.8" Grid.ColumnSpan="2" />-->
+
+
+
+
+
+
+            <StackPanel Orientation="Horizontal" Margin="5,0,0,0" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+
+            <!-- DockPanel Left -->
+
+            <TextBlock Text="Användarnamn:" FontSize="15" RenderTransformOrigin="0.101,0.659" Margin="137,94,279,686" FontFamily="Arial" Foreground="White" Grid.Column="1"/>
+            <TextBox Text="{Binding AnstäldNr}" Width="150" Margin="137,116,259,654" Grid.Column="1" RenderTransformOrigin="0.5,0.5"/>
+            <TextBox Text="{Binding Lösenord}" Width="150" Margin="139,185,257,585" Grid.Column="1" RenderTransformOrigin="0.5,0.5"/>
+
+
+            <TextBlock Text="Lösenord:" FontSize="15" Margin="138,164,0,612" HorizontalAlignment="Left" Width="99" FontFamily="Arial" Foreground="White" RenderTransformOrigin="1.101,0.667" Grid.Column="1"/>
+            <Button Content="Logga in" Margin="135,241,253,523" Command="{Binding LoggaInCommand}" Grid.Column="1" FontSize="14" Background="#FFDDDDDD"/>
+            <TextBlock Text="{Binding Felmeddelande}" Foreground="Red" Margin="195,352,134,45" Height="37" />
+            <Button Content="Avsluta" Command="{Binding ExitApplicationCommand}" Height="40" Width="74" Margin="0,316,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.709,2.83" />
+            <Label Content="Ski-Center " HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="49" FontSize="30" FontFamily="Bernard MT Condensed" Grid.ColumnSpan="2" Margin="5,0,0,0">
+                <Label.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="#FF6FBFF4" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+            <!-- DockPanel Right -->
+            <!-- DockPanel LastChildFill -->
+            <TextBlock Text="Användarnamn:" FontSize="15" RenderTransformOrigin="0.101,0.659" Margin="246,94,216,320" FontWeight="Bold" FontFamily="Arial" Foreground="#FFFCF7F7"/>
+            <Button Content="Logga in" Margin="220,254,190,151" Command="{Binding LoggaInCommand}" Height="29" Width="175"/>
+            <TextBlock Text="{Binding Felmeddelande}" Foreground="Red" Margin="195,352,134,45" Height="37" />
+            <Button Content="Avsluta" Command="{Binding ExitApplicationCommand}" Height="30" Width="74" Margin="38,0,0,33" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="0.709,2.83" />
+
+            <!-- DockPanel Right -->
+            <!-- DockPanel LastChildFill -->
+
+
+
+        </Grid>
+
+
+    </DockPanel>
+</Window>

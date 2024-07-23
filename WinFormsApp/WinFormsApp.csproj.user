@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="BokaKonferensLokal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="BokaLogi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="HuvudMeny.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Inloggning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

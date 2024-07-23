@@ -1,0 +1,230 @@
+﻿<Window x:Class="WpfApp.Views.SkidshopBokning"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        xmlns:vm="clr-namespace:WpfApp.ViewModels" 
+        mc:Ignorable="d"
+        Title="SkidshopBokning" Height="613" Width="875">
+
+    <Window.DataContext>
+        <vm:Mainwindow/>
+    </Window.DataContext>
+
+
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top" Background="LightBlue" Margin="10,10,10,10">
+            <MenuItem Header="_File">
+
+                <MenuItem Header="E_xit" Command="{Binding ExitCommand}" />
+            </MenuItem>
+        </Menu>
+
+        <TabControl Width="1385">
+            <TabItem Header="Boka Utrustning/Lektioner" DataContext="{Binding Skidshop}">
+
+                <!-- Lägg till innehåll för Bokning-fliken här -->
+                <Grid Height="533" Margin="0,0,-2,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="177*"/>
+                        <ColumnDefinition Width="127*"/>
+                        <ColumnDefinition Width="1077*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="pack://application:,,,/Views/2023-11-01.jpg" Stretch="UniformToFill" Viewbox="0,0,1,1" Viewport="0,0,1,1.4" Opacity="0.6"/>
+
+                    </Grid.Background>
+                    <DataGrid x:Name="KundLista2_Copy2" Grid.Column="1" ItemsSource="{Binding ValdaUtrustningar}"
+                      AutoGenerateColumns="True" SelectionMode="Single"
+                      SelectionUnit="FullRow" IsReadOnly="True"
+                      SelectedItem="{Binding UtrustningarSelectedItem, Mode=TwoWay}"    
+                      SelectedIndex="{Binding UtrustningarSelectedIndex, Mode=TwoWay}" Margin="84,55,788,301" RenderTransformOrigin="0.215,0.54" Grid.ColumnSpan="2" SelectionChanged="KundLista2_Copy2_SelectionChanged"/>
+                    <DataGrid x:Name="KundLista2_Copy3" ItemsSource="{Binding ValdaLektioner}"
+                      AutoGenerateColumns="True" SelectionMode="Single"
+                      SelectionUnit="FullRow" IsReadOnly="True"
+                      SelectedItem="{Binding LektionerSelectedItem, Mode=TwoWay}"    
+                      SelectedIndex="{Binding LektionerSelectedIndex, Mode=TwoWay}" Margin="84,277,788,84" RenderTransformOrigin="0.215,0.54" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                    <Button Content="Ta Bort Lektion" HorizontalAlignment="Left" Margin="315,386,0,0" VerticalAlignment="Top" Height="29" Width="139" Command="{Binding TabortLektionerCommand}" Grid.Column="2"/>
+                    <Label Content="Boka Lektioner:" HorizontalAlignment="Left" Margin="84,247,0,0" FontSize="13" VerticalAlignment="Top" RenderTransformOrigin="-0.204,0.791" Height="30" Width="126" Grid.Column="1" Grid.ColumnSpan="2" FontFamily="Arial" FontWeight="Bold"/>
+
+                    <Label Content="Boka Utrustningar:" HorizontalAlignment="Left" Margin="84,25,0,0" FontSize="13" VerticalAlignment="Top" RenderTransformOrigin="-0.204,0.791" Height="30" Width="126" Grid.Column="1" Grid.ColumnSpan="2" FontFamily="Arial" FontWeight="Bold"/>
+
+                    <Label Content="Pris:" Foreground="White" HorizontalAlignment="Left" Margin="21,326,0,0" FontSize="13" VerticalAlignment="Top" RenderTransformOrigin="-0.204,0.791" Height="30" Width="46" FontFamily="Leelawadee" FontWeight="Bold"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="71,331,0,0" Foreground="White"
+  TextWrapping="Wrap" Text="{Binding TotalaPriset, TargetNullValue='No Price'}"
+  VerticalAlignment="Top" Height="22" Width="106" FontFamily="Arial" FontSize="13"/>
+
+
+
+
+                    <TextBox HorizontalAlignment="Center" Margin="0,91,0,0" TextWrapping="Wrap" Text="{Binding Kundnummer, Mode=TwoWay}" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" Height="22"/>
+                    <TextBox HorizontalAlignment="Center" Margin="0,145,0,0" TextWrapping="Wrap" Text="{Binding AntalDagar, Mode=TwoWay}" VerticalAlignment="Top" Width="137" TextChanged="TextBox_TextChanged" Height="23"/>
+                    <DatePicker HorizontalAlignment="Center" Margin="0,194,0,0" VerticalAlignment="Top" Width="137" SelectedDate="{Binding ValtDatum}" RenderTransformOrigin="0.706,2.617" Height="24"/>
+
+
+                    <Label Content="Ange KundNr:" Foreground="#FF3D16A9" HorizontalAlignment="Left" Margin="19,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.355,-0.19" Height="26" Width="104" FontFamily="Leelawadee" FontSize="13" FontWeight="Bold"/>
+                    <Label Content="Ange antal dagar:" Foreground="#FF3D16A9" HorizontalAlignment="Left" Margin="21,118,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.355,-0.19" Height="26" Width="119" FontFamily="Leelawadee" FontSize="13" FontWeight="Bold"/>
+                    <Label Content="Ange startdatum:" Foreground="#FF3D16A9" HorizontalAlignment="Left" Margin="21,168,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.843,0.143" Height="26" Width="113" FontFamily="Leelawadee" FontSize="13" FontWeight="Bold"/>
+
+                    <ComboBox x:Name="___Veckodagar_" ItemsSource="{Binding Dag }"
+                        SelectedItem="{Binding SelectedDag, Mode=TwoWay}" RenderTransformOrigin="5.602,0.459" Grid.Column="2" Margin="315,280,619,225"
+ />
+                    <Label Content="Veckodagar:" Foreground="#FF3D16A9" HorizontalAlignment="Left" Margin="315,255,0,0" FontSize="13" VerticalAlignment="Top" Grid.Column="2" RenderTransformOrigin="-0.204,0.791" Height="33" Width="86" FontFamily="Leelawadee" FontWeight="Bold"/>
+                    <ComboBox ItemsSource="{Binding  Lektioner}"
+                    SelectedItem="{Binding SelectedLektion, Mode=TwoWay}" RenderTransformOrigin="5.602,0.459" Grid.Column="2" Margin="314,336,619,166" x:Name="Lektioner"/>
+                    <Label Content="Välj lektioner" Foreground="#FF3D16A9" HorizontalAlignment="Left" Margin="315,313,0,0" FontSize="13" VerticalAlignment="Top" Grid.Column="2" RenderTransformOrigin="-0.204,0.791" Height="30" Width="98" FontFamily="Leelawadee" FontWeight="Bold"/>
+
+                    <ComboBox ItemsSource="{Binding Veckor}"
+SelectedItem="{Binding SelectedWeek, Mode=TwoWay}" RenderTransformOrigin="5.602,0.459" Margin="21,274,4,228"
+ />
+                    <Label Content="Veckonummer" HorizontalAlignment="Left" Margin="24,273,0,0" FontSize="13" VerticalAlignment="Top" RenderTransformOrigin="-0.204,0.791" Height="30" Width="102"/>
+                    <CheckBox IsChecked="{Binding BookingByWeek, Mode=TwoWay}" Foreground="White" Content="Boka per vecka" Margin="24,243,24,264" FontFamily="Leelawadee" FontSize="13" FontWeight="Bold" />
+                    <ComboBox ItemsSource="{Binding Utrustningar}"
+SelectedItem="{Binding SelectedUtrustning, Mode=TwoWay}" RenderTransformOrigin="5.602,0.459" Grid.Column="2" Margin="318,164,618,339"
+ />
+                    <Label Content="Välj utrustningar" Foreground="#FF3D16A9" HorizontalAlignment="Left" Margin="320,138,0,0" FontSize="13" VerticalAlignment="Top" Grid.Column="2" RenderTransformOrigin="-0.204,0.791" Height="30" Width="116" FontFamily="Leelawadee" FontWeight="Bold"/>
+                    <Button Content="Ta Bort Utrustning" HorizontalAlignment="Left" Margin="315,85,0,0" VerticalAlignment="Top" Height="30" Width="142" Command="{Binding ReadUtrustningCommand}" Grid.Column="2"/>
+                    <Button Content="Skapa bokning" HorizontalAlignment="Left" Margin="315,446,0,0" VerticalAlignment="Top" Height="64" Width="153" Command="{Binding SkapaSkidShopBokningCommand}" Grid.Column="2"/>
+                    <Label Content="Ski-Center " HorizontalAlignment="Left" Margin="4,0,0,0" VerticalAlignment="Top" Width="130" Height="49" FontSize="30" FontFamily="Bernard MT Condensed" Grid.ColumnSpan="3">
+                        <Label.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black"/>
+                                <GradientStop Color="#FF6FBFF4" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Label.Foreground>
+                    </Label>
+                    <!--<Button Content="Refresh" HorizontalAlignment="Left" Command="{Binding RefreshCommand}" Margin="87,204,0,0" VerticalAlignment="Top" Width="68" RenderTransformOrigin="0.512,4.523" Grid.ColumnSpan="2"/>-->
+                </Grid>
+
+            </TabItem>
+
+            <TabItem Header="Se Bokningar" DataContext="{Binding Bokning}" Height="20" VerticalAlignment="Top" Margin="-2,-1,-4,0">
+                <!-- Lägg till innehåll för Bokning-fliken här -->
+                <Grid Height="547" Margin="0,0,1,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="77*"/>
+                        <ColumnDefinition Width="169*"/>
+                        <ColumnDefinition Width="1087*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="pack://application:,,,/Views/2023-11-01.jpg" Stretch="UniformToFill" Viewbox="0,0,1.2,1" Viewport="0,0,1,1.2" Opacity="0.6"/>
+
+                    </Grid.Background>
+
+                    <DataGrid x:Name="allaBokningar" ItemsSource="{Binding Bokningar}"
+      AutoGenerateColumns="False" SelectionMode="Single"
+        SelectionUnit="FullRow" IsReadOnly="False"
+       SelectedItem="{Binding BokningSelectedItem, Mode=TwoWay}"
+      SelectedIndex="{Binding BokningSelectedIndex, Mode=TwoWay}" Margin="108,68,689,339"  Grid.ColumnSpan="2" Grid.Column="1">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Namn    " Binding="{Binding BokningID}" />
+                            <DataGridTextColumn Header="Kund ID" Binding="{Binding Aktiv}" />
+                            <DataGridTextColumn Header="Kund Nummer" Binding="{Binding KundNr.kundID}" />
+                            <DataGridTextColumn Header="utlämningsDatum" Binding="{Binding UtlämningsDatum}" />
+                            <DataGridTextColumn Header="återlämningsDatum" Binding="{Binding ÅterlämningsDatum}" />
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+                    <!--<Button Content="skapa kund" HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" Height="70" Width="146" Command="{Binding SkapaKundCommand}"/>-->
+                    <TextBox Grid.Row="0" Text="{Binding BokningsId}" Margin="99,0,939,421" Grid.ColumnSpan="2" RenderTransformOrigin="0.228,0.851"/>
+                    <Button Content="Sök Bokning" Command="{Binding sökSkidshopBokningCommand}" Grid.Column="1" Margin="183,-8,802,424" RenderTransformOrigin="-3.375,0.403" />
+                    <DataGrid ItemsSource="{Binding DisplayedItemsLektion}" AutoGenerateColumns="True" Margin="59,293,783,0" Grid.Column="1" />
+                    <DataGrid ItemsSource="{Binding DisplayedItemsUtrustning}" AutoGenerateColumns="True" Margin="398,293,444,0" Grid.Column="1" />
+                    <Label Content="Sök bokningar" HorizontalAlignment="Left" Margin="39,33,0,0" FontSize="13" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="-0.204,0.791" Height="30" Width="116" FontFamily="Arial" FontWeight="Bold"/>
+
+
+
+                    <TextBox Grid.Row="0" Text="{Binding BokningsId}" Margin="155,34,806,489" Grid.ColumnSpan="2" RenderTransformOrigin="0.228,0.851" Grid.Column="1"/>
+                    <Button Content="Sök Bokning" Command="{Binding SökSkidshopBokningCommand}" Grid.Column="2" Margin="336,27,690,484" RenderTransformOrigin="-3.375,0.403" />
+                    <DataGrid ItemsSource="{Binding ValdaUtrustningar}" AutoGenerateColumns="True" Margin="108,239,689,183" Grid.ColumnSpan="2" Grid.Column="1" />
+                    <DataGrid ItemsSource="{Binding ValdaLektioner}" AutoGenerateColumns="True" Margin="108,383,689,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.462,1.247" Height="118" VerticalAlignment="Top" Grid.Column="1" />
+
+                    <Label Content="Ski-Center " HorizontalAlignment="Left" Margin="4,0,0,0" VerticalAlignment="Top" Width="130" Height="49" FontSize="30" FontFamily="Bernard MT Condensed" Grid.ColumnSpan="3">
+                        <Label.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black"/>
+                                <GradientStop Color="#FF6FBFF4" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Label.Foreground>
+                    </Label>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Kund" DataContext="{Binding Kund}">
+                <!-- Lägg till innehåll för Bokning-fliken här -->
+                <Grid Height="527" Margin="0,0,1,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="146*"/>
+                        <ColumnDefinition Width="647*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="pack://application:,,,/Views/2023-11-01.jpg" Stretch="UniformToFill" Viewbox="0,0,1.1,1" Viewport="0,0,1,1.2" Opacity="0.6"/>
+
+                    </Grid.Background>
+
+                    <DataGrid x:Name="allaKunder" ItemsSource="{Binding TillgängligaKunder}"
+                AutoGenerateColumns="False" SelectionMode="Single"
+                  SelectionUnit="FullRow" IsReadOnly="True"
+                 SelectedItem="{Binding KunderSelectedItem, Mode=TwoWay}"
+                SelectedIndex="{Binding KunderSelectedIndex, Mode=TwoWay}" Margin="65,110,671,214" Grid.ColumnSpan="2" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Namn    " Binding="{Binding namn}" />
+                            <DataGridTextColumn Header="Kund ID " Binding="{Binding kundID}" />
+
+                            <DataGridTextColumn Header="Kreditgräns " Binding="{Binding kreditGräns}" />
+                            <DataGridTextColumn Header="Rabatt " Binding="{Binding rabatt}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="Registrerade Kunder :" HorizontalAlignment="Left" Margin="65,80,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="13" FontWeight="Bold"/>
+                    <Label Content="Ski-Center " HorizontalAlignment="Left" Margin="4,0,0,0" VerticalAlignment="Top" Width="130" Height="49" FontSize="30" FontFamily="Bernard MT Condensed" Grid.ColumnSpan="3">
+                        <Label.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black"/>
+                                <GradientStop Color="#FF6FBFF4" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Label.Foreground>
+                    </Label>
+
+                </Grid>
+
+
+            </TabItem>
+            <TabItem Header= "Rapporter" DataContext="{Binding Skidshop}" Margin="0,-2,-2,0" HorizontalAlignment="Right" Width="69">
+                <!-- Lägg till innehåll för Bokning-fliken här -->
+                <Grid Height="527" Margin="0,0,1,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="146*"/>
+                        <ColumnDefinition Width="647*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="pack://application:,,,/Views/2023-11-01.jpg" Stretch="UniformToFill" Viewbox="0,0,1.2,1" Viewport="0,0,1,1.2" Opacity="0.6"/>
+
+                    </Grid.Background>
+
+                    <Label Content="Ski-Center " HorizontalAlignment="Left" Margin="4,0,0,0" VerticalAlignment="Top" Width="130" Height="49" FontSize="30" FontFamily="Bernard MT Condensed" Grid.ColumnSpan="3">
+                        <Label.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black"/>
+                                <GradientStop Color="#FF6FBFF4" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Label.Foreground>
+                    </Label>
+                    <Button Content="Skriva ut kundregister" Command="{Binding SkrivaUtKundRegister}" Grid.Column="1" Margin="68,263,864,214" RenderTransformOrigin="-3.375,0.403" />
+                    <Button Content="Skriva ut utrsutningsregistrer" Command="{Binding SkrivaUtSkidutrusningsregistret}" Grid.Column="1" Margin="68,169,864,310" RenderTransformOrigin="-3.375,0.403" />
+                    <Button Content="Skriva ut utrsutnings priser" Command="{Binding SkrivaUtPrislistorUtrustning}" Margin="68,78,864,403" RenderTransformOrigin="-3.375,0.403" Grid.Column="1" />
+
+                </Grid>
+
+
+            </TabItem>
+
+        </TabControl>
+
+
+    </DockPanel>
+</Window>
